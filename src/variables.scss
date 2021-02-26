@@ -1,0 +1,32 @@
+$maincolor: #0d1c2e;
+$lightgrey: #707c97;
+$darkblue: #2a8bf2;
+$linearBlue: linear-gradient(120deg, #7cb8f7, #2a8bf2);
+
+$fontsize-md: 18px;
+
+//mixins
+
+@mixin borderRadius($i) {
+  border-radius: $i;
+  -webkit-border-radius: $i;
+  -moz-border-radius: $i;
+  -ms-border-radius: $i;
+  -o-border-radius: $i;
+}
+
+@mixin transition($i) {
+  transition: $i;
+  -webkit-transition: $i;
+  -moz-transition: $i;
+  -ms-transition: $i;
+  -o-transition: $i;
+}
+
+@mixin transform($i) {
+  transform: $i;
+  -webkit-transform: $i;
+  -moz-transform: $i;
+  -ms-transform: $i;
+  -o-transform: $i;
+}

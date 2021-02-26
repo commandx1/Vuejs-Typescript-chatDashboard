@@ -1,0 +1,190 @@
+@import "../../variables.scss";
+
+.chat {
+  .header {
+    background-color: #fafbff;
+    height: 111px;
+  }
+  .messages {
+    overflow-y: auto;
+    height: calc(100% - 111px - 70px);
+  }
+  .messagecontent {
+    .message.user {
+      margin-right: auto;
+      margin-left: 0;
+
+      .messagecontentwrapper {
+        & + .fa-ellipsis-h {
+          order: 3;
+          margin-left: 1rem;
+        }
+      }
+
+      .msgcontent {
+        background: $linearBlue;
+        @include borderRadius(25px);
+        border-top-left-radius: 0;
+        font-size: 16px;
+        color: white;
+        box-shadow: 0 2px 3px $darkblue;
+
+        .filewrapper {
+          margin-bottom: 1rem;
+
+          * {
+            color: white !important;
+          }
+
+          .filebg {
+            order: 1;
+            width: 40px;
+            height: 40px;
+            background: rgba($color: #fff, $alpha: 0.25);
+            @include borderRadius(0.35rem);
+            margin-right: 0.75rem;
+            margin-left: 0;
+          }
+          .d-flex {
+            order: 2;
+          }
+          span {
+            opacity: 0.7;
+            font-size: 14px;
+          }
+        }
+      }
+      .chats {
+        .image {
+          margin-right: 0.5rem;
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+    .message {
+      max-width: 80%;
+      margin-bottom: 1rem;
+      display: flex;
+      margin-left: auto;
+      margin-right: 0;
+      .messagecontentwrapper {
+        order: 2;
+
+        span.date {
+          font-size: 14px;
+          opacity: 0.75;
+        }
+      }
+      .msgcontent {
+        background: white;
+        box-shadow: -1px -1px 3px #e4e4e4, -1px 1px 3px #e4e4e4;
+        @include borderRadius(25px);
+        border-bottom-right-radius: 0;
+
+        .filewrapper {
+          margin-left: auto;
+          font-size: 16px;
+          * {
+            color: $darkblue;
+          }
+          .filebg {
+            order: 2 !important;
+            margin-left: 0.75rem;
+            margin-right: 0;
+          }
+          .d-flex {
+            order: 1;
+            flex-direction: row-reverse;
+            font-weight: 600;
+
+            span {
+              &:before {
+                content: "(";
+              }
+              &:after {
+                content: ")";
+              }
+            }
+          }
+        }
+      }
+
+      .fa-ellipsis-h {
+        order: 1;
+        color: #b7bdcb;
+        margin-right: 1rem;
+      }
+
+      img[alt="checked"] {
+        width: 20px;
+        order: 3;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  .messagearea {
+    height: 70px;
+
+    .iconbutton {
+      background: $linearBlue;
+      color: white;
+      width: 40px;
+      height: 40px;
+    }
+
+    .iconbutton.position-relative {
+      .position-absolute {
+        pointer-events: none;
+        bottom: calc(100%);
+        left: 0;
+
+        .iconbutton {
+          @include transition(200ms);
+          opacity: 0;
+          margin-left: 0;
+          margin-bottom: 0.75rem;
+          box-shadow: 0 0 2px $darkblue, 0 0 4px $darkblue, 0 0 6px $darkblue;
+        }
+      }
+
+      .show {
+        .iconbutton {
+          pointer-events: visible;
+          opacity: 1;
+          &:nth-child(1) {
+            transition-delay: 200ms;
+          }
+          &:nth-child(2) {
+            transition-delay: 150ms;
+          }
+          &:nth-child(3) {
+            transition-delay: 100ms;
+          }
+        }
+      }
+    }
+
+    .fa-smile {
+      opacity: 0.5;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.iconbutton {
+  @include borderRadius(50%);
+  width: 50px;
+  height: 50px;
+  background: white;
+  filter: drop-shadow(1px 3px 3px #e4e4e4);
+  -webkit-filter: drop-shadow(1px 3px 3px #e4e4e4);
+  margin-left: 1rem;
+}

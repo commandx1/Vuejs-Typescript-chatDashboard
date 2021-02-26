@@ -1,0 +1,185 @@
+@import "../../variables.scss";
+
+.chats {
+  .header {
+    h3,
+    span {
+      font-weight: 500;
+    }
+    h3 {
+      color: $maincolor;
+    }
+    span {
+      i {
+        font-size: 0.7rem;
+      }
+    }
+
+    button {
+      background: $linearBlue;
+      outline: 0;
+      border: 0;
+      color: white;
+      letter-spacing: 0.1rem;
+      padding: 0 1.5rem;
+      @include borderRadius(0.5rem);
+    }
+  }
+
+  .searchbox {
+    border-right: 2px solid #f5f4fb;
+    input {
+      width: 75%;
+      color: $lightgrey;
+      font-weight: 500;
+      margin-left: 1rem;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: $lightgrey;
+      }
+    }
+
+    & + div {
+      span {
+        margin-right: 0.75rem;
+        font-weight: 600;
+      }
+      i {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .userinfo {
+    .username {
+      color: $maincolor;
+      font-weight: 700;
+    }
+    .status {
+      color: $darkblue;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+
+  .image {
+    margin-right: 1rem;
+    width: 54px;
+    height: 54px;
+    position: relative;
+    .online {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      left: 5px;
+      top: 1px;
+      background: rgb(48, 194, 48);
+      @include borderRadius(50%);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include borderRadius(50%);
+    }
+  }
+
+  .lastseen {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .content {
+    .w-90 {
+      width: 90%;
+      font-weight: 600;
+      font-size: 16px;
+      .fa-microphone {
+        font-size: 13px;
+        margin-right: 0.25rem;
+      }
+
+      .files,
+      .photo {
+        font-size: 14px;
+        @include borderRadius(50px);
+      }
+
+      .files {
+        background: rgba($color: $darkblue, $alpha: 0.25);
+        color: $darkblue;
+        margin-right: 1rem;
+      }
+      .photo {
+        background: rgba($color: #ff3366, $alpha: 0.25);
+        color: #ff3366;
+      }
+    }
+    .w-10 {
+      width: 10%;
+      .circle {
+        width: 20px;
+        height: 20px;
+        @include borderRadius(50%);
+        background: #ff3366;
+        color: white;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .pointer.p-4 {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0);
+      @include transition(200ms);
+    }
+    &:hover {
+      &:after {
+        content: "";
+        background: rgba($color: #000000, $alpha: 0.1);
+      }
+    }
+  }
+
+  .pointer.active {
+    background: $linearBlue;
+    cursor: default;
+
+    &:hover {
+      &:after {
+        content: "";
+        display: none;
+      }
+    }
+
+    .content,
+    .status,
+    .w-80,
+    .lastseen,
+    .files,
+    .photo {
+      color: white;
+    }
+    .files,
+    .photo {
+      color: rgba($color: #fff, $alpha: 0.8);
+    }
+    .lastseen {
+      opacity: 0.75;
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
